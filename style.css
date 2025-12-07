@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Portfólio</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS SIMPLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        /* Menu */
+        nav {
+            background: #2c3e50;
+            padding: 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+        
+        nav a:hover {
+            background: #3498db;
+            border-radius: 3px;
+        }
+        
+        /* Seções */
+        section {
+            padding: 80px 20px 40px;
+            min-height: 100vh;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        /* Cores diferentes para cada seção */
+        #inicio {
+            background: #ecf0f1;
+        }
+        
+        #sobre {
+            background: white;
+        }
+        
+        #formacao {
+            background: #f9f9f9;
+        }
+        
+        #portfolio {
+            background: white;
+        }
+        
+        #contato {
+            background: #f9f9f9;
+        }
+        
+        /* Títulos */
+        h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* Textos */
+        p {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        /* Links do portfólio */
+        #portfolio a {
+            color: #2980b9;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+        }
+        
+        #portfolio a:hover {
+            color: #3498db;
+            text-decoration: underline;
+        }
+        
+        /* Formulário */
+        form {
+            max-width: 600px;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        /* Resultado do formulário */
+        #resultado {
+            margin-top: 15px;
+            padding: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#formacao">Formação</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <section id="inicio">
+        <h1>Meu Portfólio</h1>
+        <p>Bem-vindo ao meu portfólio profissional</p>
+    </section>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Vagner Ferreira Holzlsauer de Araújo</p>
+        <p>Hobbies: ler, programar, música</p>
+    </section>
+
+    <section id="formacao">
+        <h2>Formação</h2>
+        <p>Tecnologia de Banco de Dados</p>
+        <p>Idiomas: Português e Inglês</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <p><a href="#">Projeto 1 - Site Pessoal</a></p>
+        <p><a href="#">Projeto 2 - Calculadora</a></p>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <form onsubmit="return validarForm()">
+            <p>Nome: <input type="text" id="nome"></p>
+            <p>E-mail: <input type="email" id="email"></p>
+            <p>Mensagem: <textarea id="msg"></textarea></p>
+            <button type="submit">Enviar</button>
+            <p id="resultado"></p>
+        </form>
+    </section>
+
+    <script>
+        function validarForm() {
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var msg = document.getElementById('msg').value;
+            var resultado = document.getElementById('resultado');
+            
+            if (nome == "" || email == "" || msg == "") {
+                resultado.innerHTML = "Preencha todos os campos!";
+                resultado.style.color = "red";
+                return false;
+            }
+            
+            resultado.innerHTML = "Mensagem enviada com sucesso!";
+            resultado.style.color = "green";
+            
+            document.getElementById('nome').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('msg').value = "";
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
