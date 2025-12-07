@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Portfólio</title>
+
+    
+    <style>
+        nav {
+            background: #333;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        section {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#formacao">Formação</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <section id="inicio">
+        <h1>Meu Portfólio</h1>
+    </section>
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Vagner Ferreira Holzlsauer de Araújo</p>
+        <p>Hobbies: leitura sobre História Mundial e , programar, música</p>
+    </section>
+
+    <section id="formacao">
+        <h2>Formação</h2>
+        <p>Tecnologia de Banco de Dados</p>
+        <p>Idiomas: Português e Inglês</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <p><a href="#">Projeto 1 - Site Pessoal</a></p>
+        <p><a href="#">Projeto 2 - Calculadora</a></p>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <form onsubmit="return validarForm()">
+            <p>Nome: <input type="text" id="nome"></p>
+            <p>E-mail: <input type="email" id="email"></p>
+            <p>Mensagem: <textarea id="msg"></textarea></p>
+            <button type="submit">Enviar</button>
+            <p id="resultado"></p>
+        </form>
+    </section>
+
+    <script>
+        function validarForm() {
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var msg = document.getElementById('msg').value;
+            var resultado = document.getElementById('resultado');
+            
+            if (nome == "" || email == "" || msg == "") {
+                resultado.innerHTML = "Preencha todos os campos!";
+                resultado.style.color = "red";
+                return false;
+            }
+            
+            resultado.innerHTML = "Mensagem enviada com sucesso!";
+            resultado.style.color = "green";
+            
+            document.getElementById('nome').value = "";
+            document.getElementById('email').value = "";
+            document.getElementById('msg').value = "";
+            
+            return false;
+        }
+    </script>
+</body>
+</html>
